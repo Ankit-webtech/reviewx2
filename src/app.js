@@ -7,10 +7,8 @@ const helmet = require("helmet");
 const app = express();
 //cors for middle sharing access
 app.use(cors({
-  origin:[
-    "http://localhost:5173",  // dev frontend
-    "https://ReviewX.vercel.app" // deployed frontend
-  ],
+  origin: process.env.CORS_ORIGIN?.split(","),
+
   methods:["GET","POST"],
   credentials:true
 }));
